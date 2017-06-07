@@ -72,13 +72,44 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.vb">
+    <Compile Include="Administrador\a_cargos.Designer.vb">
+      <DependentUpon>a_cargos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\a_cargos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="Administrador\a_inicio.Designer.vb">
+      <DependentUpon>a_inicio.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\a_inicio.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Administrador\a_proveedor.Designer.vb">
+      <DependentUpon>a_proveedor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\a_proveedor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrador\a_trabajador.Designer.vb">
+      <DependentUpon>a_trabajador.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\a_trabajador.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inicio.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inicio.Designer.vb">
+      <DependentUpon>Inicio.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.vb">
+      <DependentUpon>Login.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Login.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulos\conexion.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -96,6 +127,24 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Administrador\a_cargos.resx">
+      <DependentUpon>a_cargos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrador\a_inicio.resx">
+      <DependentUpon>a_inicio.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrador\a_proveedor.resx">
+      <DependentUpon>a_proveedor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrador\a_trabajador.resx">
+      <DependentUpon>a_trabajador.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inicio.resx">
+      <DependentUpon>Inicio.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
