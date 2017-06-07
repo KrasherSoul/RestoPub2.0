@@ -32,7 +32,8 @@ Namespace My
 
 		<Global.System.Diagnostics.DebuggerStepThroughAttribute()> _
 		Protected Overrides Sub OnCreateMainForm()
-			Me.MainForm = Global.RestoPub.inicio
-		End Sub
+            Me.MainForm = Global.RestoPub.a_inicio
+
+        End Sub
 	End Class
 End Namespace

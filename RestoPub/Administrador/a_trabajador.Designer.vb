@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class a_trabajador
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,8 +20,9 @@ Partial Class a_trabajador
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.Modificar = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
@@ -30,6 +31,8 @@ Partial Class a_trabajador
         Me.Label11 = New System.Windows.Forms.Label()
         Me.TxtTelefono2 = New System.Windows.Forms.TextBox()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.CargoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.RestobarDataSet = New RestoPub.restobarDataSet()
         Me.cargo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.telefono2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.telefono1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -67,6 +70,9 @@ Partial Class a_trabajador
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.CargoTableAdapter = New RestoPub.restobarDataSetTableAdapters.cargoTableAdapter()
+        CType(Me.CargoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RestobarDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dg_trabajador, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -135,12 +141,24 @@ Partial Class a_trabajador
         '
         'ComboBox1
         '
+        Me.ComboBox1.DataSource = Me.CargoBindingSource
+        Me.ComboBox1.DisplayMember = "nombre"
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Location = New System.Drawing.Point(491, 173)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(147, 21)
         Me.ComboBox1.TabIndex = 22
         Me.ComboBox1.ValueMember = "id_cargo"
+        '
+        'CargoBindingSource
+        '
+        Me.CargoBindingSource.DataMember = "cargo"
+        Me.CargoBindingSource.DataSource = Me.RestobarDataSet
+        '
+        'RestobarDataSet
+        '
+        Me.RestobarDataSet.DataSetName = "restobarDataSet"
+        Me.RestobarDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'cargo
         '
@@ -446,6 +464,10 @@ Partial Class a_trabajador
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Trabajador"
         '
+        'CargoTableAdapter
+        '
+        Me.CargoTableAdapter.ClearBeforeFill = True
+        '
         'a_trabajador
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -457,6 +479,8 @@ Partial Class a_trabajador
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "a_trabajador"
         Me.Text = "a_trabajador"
+        CType(Me.CargoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RestobarDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dg_trabajador, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
@@ -509,4 +533,7 @@ Partial Class a_trabajador
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents RestobarDataSet As restobarDataSet
+    Friend WithEvents CargoBindingSource As BindingSource
+    Friend WithEvents CargoTableAdapter As restobarDataSetTableAdapters.cargoTableAdapter
 End Class

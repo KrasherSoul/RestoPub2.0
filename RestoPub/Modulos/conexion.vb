@@ -10,7 +10,7 @@ Module conexion
     Public Sub SQLQuery(ByVal Query As String, ByVal retornadatos As Boolean)
         Try
             conexion = New SqlConnection
-            Dim string_conexion As String = "server=EUPINO-PC; user id=sa; password=eugenio159; database=restobar"
+            Dim string_conexion As String = "server=localhost; user id=sa; password=eugenio159; database=restobar"
             conexion.ConnectionString = string_conexion
             conexion.Open()
             comando.Connection = conexion

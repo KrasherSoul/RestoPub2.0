@@ -66,4 +66,10 @@
 
 
     End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        SQLQuery("UPDATE proveedor SET rut = '" & TxtRut.Text & "', nombre = '" & TxtNombre.Text & "', apellido = '" & TxtApellido.Text & "', verificador = '" & TxtVerificador.Text & "', ciudad = '" & TxtCiudad.Text & "', direccion = '" & TxtDireccion.Text & "', correo = '" & TxtCorreo.Text & "', telefono1 = '" & TxtTelefono1.Text & "', telefono2 = '" & TxtTelefono2.Text & "' WHERE rut = '" & Label15.Text & "'", False)
+        cargar_proveedor()
+
+    End Sub
 End Class
