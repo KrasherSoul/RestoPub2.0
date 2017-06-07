@@ -22,7 +22,6 @@ Partial Class a_trabajador
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Me.Modificar = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
@@ -31,7 +30,6 @@ Partial Class a_trabajador
         Me.Label11 = New System.Windows.Forms.Label()
         Me.TxtTelefono2 = New System.Windows.Forms.TextBox()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.CargoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.cargo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.telefono2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.telefono1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -69,7 +67,6 @@ Partial Class a_trabajador
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        CType(Me.CargoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dg_trabajador, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -138,18 +135,12 @@ Partial Class a_trabajador
         '
         'ComboBox1
         '
-        Me.ComboBox1.DataSource = Me.CargoBindingSource
-        Me.ComboBox1.DisplayMember = "nombre"
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Location = New System.Drawing.Point(491, 173)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(147, 21)
         Me.ComboBox1.TabIndex = 22
         Me.ComboBox1.ValueMember = "id_cargo"
-        '
-        'CargoBindingSource
-        '
-        Me.CargoBindingSource.DataMember = "cargo"
         '
         'cargo
         '
@@ -466,7 +457,6 @@ Partial Class a_trabajador
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "a_trabajador"
         Me.Text = "a_trabajador"
-        CType(Me.CargoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dg_trabajador, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
@@ -482,7 +472,6 @@ Partial Class a_trabajador
     Friend WithEvents Label11 As Label
     Friend WithEvents TxtTelefono2 As TextBox
     Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents CargoBindingSource As BindingSource
     Friend WithEvents cargo As DataGridViewTextBoxColumn
     Friend WithEvents telefono2 As DataGridViewTextBoxColumn
     Friend WithEvents telefono1 As DataGridViewTextBoxColumn
