@@ -96,4 +96,6 @@ Public Class a_trabajador
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
         llenar_combobox()
     End Sub
+
+
 End Class

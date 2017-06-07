@@ -26,12 +26,15 @@ Partial Class a_inicio
         Me.TrabajadorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CargosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProveedorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ProductosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CategoriasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AgregarProductoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TrabajadorToolStripMenuItem, Me.CargosToolStripMenuItem, Me.ProveedorToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TrabajadorToolStripMenuItem, Me.CargosToolStripMenuItem, Me.ProveedorToolStripMenuItem, Me.ProductosToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(869, 24)
@@ -56,6 +59,25 @@ Partial Class a_inicio
         Me.ProveedorToolStripMenuItem.Size = New System.Drawing.Size(73, 20)
         Me.ProveedorToolStripMenuItem.Text = "Proveedor"
         '
+        'ProductosToolStripMenuItem
+        '
+        Me.ProductosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CategoriasToolStripMenuItem, Me.AgregarProductoToolStripMenuItem})
+        Me.ProductosToolStripMenuItem.Name = "ProductosToolStripMenuItem"
+        Me.ProductosToolStripMenuItem.Size = New System.Drawing.Size(73, 20)
+        Me.ProductosToolStripMenuItem.Text = "Productos"
+        '
+        'CategoriasToolStripMenuItem
+        '
+        Me.CategoriasToolStripMenuItem.Name = "CategoriasToolStripMenuItem"
+        Me.CategoriasToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.CategoriasToolStripMenuItem.Text = "Categorias"
+        '
+        'AgregarProductoToolStripMenuItem
+        '
+        Me.AgregarProductoToolStripMenuItem.Name = "AgregarProductoToolStripMenuItem"
+        Me.AgregarProductoToolStripMenuItem.Size = New System.Drawing.Size(168, 22)
+        Me.AgregarProductoToolStripMenuItem.Text = "Agregar Producto"
+        '
         'a_inicio
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -75,4 +97,7 @@ Partial Class a_inicio
     Friend WithEvents TrabajadorToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CargosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ProveedorToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ProductosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents CategoriasToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AgregarProductoToolStripMenuItem As ToolStripMenuItem
 End Class
