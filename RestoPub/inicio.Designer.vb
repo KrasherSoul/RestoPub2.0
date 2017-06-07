@@ -1,6 +1,6 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Form1
-	Inherits System.Windows.Forms.Form
+Partial Class form1
+    Inherits System.Windows.Forms.Form
 
 	'Form reemplaza a Dispose para limpiar la lista de componentes.
 	<System.Diagnostics.DebuggerNonUserCode()> _
