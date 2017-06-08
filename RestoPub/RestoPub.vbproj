@@ -108,6 +108,18 @@
     <Compile Include="Administrador\a_trabajador.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Administrador\l_pedidos.Designer.vb">
+      <DependentUpon>l_pedidos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\l_pedidos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrador\pedidos.Designer.vb">
+      <DependentUpon>pedidos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\pedidos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Inicio.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -166,6 +178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\a_trabajador.resx">
       <DependentUpon>a_trabajador.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrador\l_pedidos.resx">
+      <DependentUpon>l_pedidos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.vb</DependentUpon>
