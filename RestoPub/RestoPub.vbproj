@@ -182,6 +182,9 @@
     <EmbeddedResource Include="Administrador\l_pedidos.resx">
       <DependentUpon>l_pedidos.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Administrador\pedidos.resx">
+      <DependentUpon>pedidos.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.vb</DependentUpon>
     </EmbeddedResource>
