@@ -22,11 +22,17 @@ Partial Class a_categoria
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.TxtNombre = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.CmbFamilia = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.RestobarDataSet2 = New RestoPub.restobarDataSet2()
+        Me.FamiliaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.FamiliaTableAdapter = New RestoPub.restobarDataSet2TableAdapters.familiaTableAdapter()
+        CType(Me.RestobarDataSet2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FamiliaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Button1
@@ -72,6 +78,20 @@ Partial Class a_categoria
         Me.Label2.TabIndex = 4
         Me.Label2.Text = "Familia"
         '
+        'RestobarDataSet2
+        '
+        Me.RestobarDataSet2.DataSetName = "restobarDataSet2"
+        Me.RestobarDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'FamiliaBindingSource
+        '
+        Me.FamiliaBindingSource.DataMember = "familia"
+        Me.FamiliaBindingSource.DataSource = Me.RestobarDataSet2
+        '
+        'FamiliaTableAdapter
+        '
+        Me.FamiliaTableAdapter.ClearBeforeFill = True
+        '
         'a_categoria
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -84,6 +104,8 @@ Partial Class a_categoria
         Me.Controls.Add(Me.Button1)
         Me.Name = "a_categoria"
         Me.Text = "a_categoria"
+        CType(Me.RestobarDataSet2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FamiliaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -94,4 +116,7 @@ Partial Class a_categoria
     Friend WithEvents Label1 As Label
     Friend WithEvents CmbFamilia As ComboBox
     Friend WithEvents Label2 As Label
+    Friend WithEvents RestobarDataSet2 As restobarDataSet2
+    Friend WithEvents FamiliaBindingSource As BindingSource
+    Friend WithEvents FamiliaTableAdapter As restobarDataSet2TableAdapters.familiaTableAdapter
 End Class

@@ -199,4 +199,9 @@
         edicion = False
         eliminar = False
     End Sub
+
+    Private Sub FamiliaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FamiliaToolStripMenuItem.Click
+        Me.Hide()
+        a_familia.Show()
+    End Sub
 End Class

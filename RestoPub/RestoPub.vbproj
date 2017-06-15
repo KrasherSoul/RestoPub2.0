@@ -84,6 +84,12 @@
     <Compile Include="Administrador\a_categoria.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Administrador\a_familia.Designer.vb">
+      <DependentUpon>a_familia.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\a_familia.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Administrador\a_inicio.Designer.vb">
       <DependentUpon>a_inicio.vb</DependentUpon>
     </Compile>
@@ -106,6 +112,12 @@
       <DependentUpon>a_trabajador.vb</DependentUpon>
     </Compile>
     <Compile Include="Administrador\a_trabajador.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrador\descripcion_pedido.Designer.vb">
+      <DependentUpon>descripcion_pedido.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\descripcion_pedido.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Administrador\l_pedidos.Designer.vb">
@@ -159,6 +171,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>restobarDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="restobarDataSet2.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>restobarDataSet2.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Administrador\a_cargos.resx">
@@ -166,6 +183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\a_categoria.resx">
       <DependentUpon>a_categoria.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrador\a_familia.resx">
+      <DependentUpon>a_familia.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\a_inicio.resx">
       <DependentUpon>a_inicio.vb</DependentUpon>
@@ -178,6 +198,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\a_trabajador.resx">
       <DependentUpon>a_trabajador.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrador\descripcion_pedido.resx">
+      <DependentUpon>descripcion_pedido.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\l_pedidos.resx">
       <DependentUpon>l_pedidos.vb</DependentUpon>
@@ -230,6 +253,17 @@
     </None>
     <None Include="restobarDataSet1.xss">
       <DependentUpon>restobarDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="restobarDataSet2.xsc">
+      <DependentUpon>restobarDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="restobarDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>restobarDataSet2.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="restobarDataSet2.xss">
+      <DependentUpon>restobarDataSet2.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

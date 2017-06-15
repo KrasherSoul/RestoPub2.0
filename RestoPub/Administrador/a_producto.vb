@@ -19,7 +19,7 @@ Public Class a_producto
         SQLQuery("SELECT producto.id_producto, producto.nombre, producto.precio, producto.cantidad, producto.descripcion, categoria.nombre AS categoria FROM categoria INNER JOIN producto ON categoria.id_categoria = producto.id_categoria", True)
         If lector.HasRows Then
             While lector.Read
-                dg_productos.Rows.Add(lector.Item("id_producto"), lector.Item("nombre"), lector.Item("categoria"), lector.Item("cantidad"), lector.Item("precio"), lector.Item("descripcion"), "Ver datos", "Modificar", "Eliminar")
+                dg_productos.Rows.Add(lector.Item("id_producto"), lector.Item("nombre"), lector.Item("categoria"), lector.Item("precio"), lector.Item("cantidad"), lector.Item("descripcion"), "Ver datos", "Modificar", "Eliminar")
             End While
         End If
     End Sub
