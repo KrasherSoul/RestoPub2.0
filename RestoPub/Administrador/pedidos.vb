@@ -1,22 +1,18 @@
 ﻿Public Class pedidos
     Dim cPedidos As Integer = 0
     Dim nPedido As Integer = 0
+    Dim nCuenta As Integer = 0
+
     Private Sub pedidos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim btn As Button
         Dim sql As String
         Dim lft As Integer
         Button2.Enabled = False
-        sql = "select * from variables"
-        SQLQuery(sql, True)
-        If lector.HasRows Then
-            While lector.Read
-                nPedido = lector.Item("num_pedido")
-            End While
-        End If
-        Label5.Text = nPedido
+
+        LblIdPedido.Text = nPedido
         cPedidos = 0
-        sql = "select * from familia"
-        SQLQuery(sql, True)
+
+        SQLQuery("select * from familia", True)
         If lector.HasRows Then
             While lector.Read
                 btn = New System.Windows.Forms.Button
@@ -35,7 +31,14 @@
 
             End While
         End If
-
+        sql = "select * from variables"
+        SQLQuery(sql, True)
+        If lector.HasRows Then
+            While lector.Read
+                nPedido = lector.Item("num_pedido")
+                nCuenta = lector.Item("num_cuenta")
+            End While
+        End If
     End Sub
     Public Sub cargar_productos()
 
@@ -98,13 +101,13 @@
             query = ("INSERT INTO pedido(id_pedido,id_mesa,rut,fecha_hora,estado) VALUES ('" & nPedido.ToString & "','" & Label2.Text & "', '" & Label3.Text & "', '" & Now.ToShortDateString.ToString & "', 'Pendiente' )")
             SQLQuery(query, False)
 
-            query = ("INSERT INTO detalle_pedido(id_producto,id_pedido,descripcion) VALUES ('" & sender.name & "', '" & nPedido.ToString & "', '' )")
+
+            query = ("INSERT INTO detalle_pedido(id_producto,id_pedido,descripcion,fecha_hora) VALUES ('" & sender.name & "', '" & nPedido.ToString & "', '','" & Now.ToShortDateString.ToString & "' )")
             SQLQuery(query, False)
             llenarDetallePedidos()
         Else
-            query = ("INSERT INTO detalle_pedido(id_producto,id_pedido,descripcion) VALUES ('" & sender.name & "', '" & nPedido.ToString & "', '' )")
+            query = ("INSERT INTO detalle_pedido(id_producto,id_pedido,descripcion,fecha_hora) VALUES ('" & sender.name & "', '" & nPedido.ToString & "', '','" & Now.ToShortDateString.ToString & "' )")
             SQLQuery(query, False)
-            MsgBox(query)
             llenarDetallePedidos()
 
         End If
@@ -122,7 +125,7 @@
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
 
-        SQLQuery("DELETE FROM detalle_pedido WHERE id_detalle_pedido='" & Label5.Text & "' ", False)
+        SQLQuery("DELETE FROM detalle_pedido WHERE id_detalle_pedido='" & LblIdPedido.Text & "' ", False)
 
         Button2.Enabled = False
 
@@ -137,7 +140,7 @@
 
         Else
             Button2.Enabled = True
-            Label5.Text = Me.DataGridView3.Rows(e.RowIndex).Cells(0).Value
+            LblIdPedido.Text = Me.DataGridView3.Rows(e.RowIndex).Cells(0).Value
         End If
 
     End Sub
@@ -159,5 +162,32 @@
             descripcion_pedido.Label1.Text = Me.DataGridView3.Rows(e.RowIndex).Cells(0).Value
             descripcion_pedido.Show()
         End If
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
+        PrintDocument1.Print()
+
+    End Sub
+
+    Private Sub PrintDocument1_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PrintDocument1.PrintPage
+        Dim titulo As Font = New Drawing.Font("Arial", 14)
+        Dim sector As Font = New Drawing.Font("Arial", 16)
+        Dim texto As Font = New Drawing.Font("Arial", 11)
+        Dim margenizq As Integer
+        Dim margensup As Integer
+        e.Graphics.DrawString("Pedido n° " & nPedido.ToString, titulo, Brushes.Black, margenizq, margensup)
+        SQLQuery("SELECT dbo.detalle_pedido.id_detalle_pedido,dbo.detalle_pedido.id_producto, dbo.producto.nombre as nombreP, dbo.producto.precio FROM dbo.detalle_pedido INNER JOIN dbo.producto ON dbo.detalle_pedido.id_producto = dbo.producto.id_producto where id_pedido='" & nPedido.ToString & "'", True)
+        If lector.HasRows Then
+            margensup = margensup + 25
+            e.Graphics.DrawString("Producto", texto, Brushes.Black, margenizq, (margensup))
+            e.Graphics.DrawString("Precio", texto, Brushes.Black, (margenizq + 100), (margensup))
+            While lector.Read
+                margensup = margensup + 25
+                e.Graphics.DrawString(lector.Item("nombreP").ToString, texto, Brushes.Black, (margenizq), margensup)
+                e.Graphics.DrawString(lector.Item("precio").ToString, texto, Brushes.Black, (margenizq + 100), margensup)
+            End While
+        End If
+
     End Sub
 End Class
