@@ -55,7 +55,7 @@
                 i = i - 1
             End If
         Else
-            l_pedidos.Text = sender.name
+            l_pedidos.Text = sender.tag
             l_pedidos.Show()
             sender.forecolor = Color.Red
 
