@@ -40,7 +40,8 @@ Partial Class pedidos
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.ListView1 = New System.Windows.Forms.ListView()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.LblIdPedido = New System.Windows.Forms.Label()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl2.SuspendLayout()
         Me.TabPage3.SuspendLayout()
@@ -182,7 +183,7 @@ Partial Class pedidos
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(240, 350)
+        Me.Label3.Location = New System.Drawing.Point(235, 327)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(39, 13)
         Me.Label3.TabIndex = 8
@@ -197,20 +198,31 @@ Partial Class pedidos
         Me.Label4.TabIndex = 9
         Me.Label4.Text = "Label4"
         '
-        'ListView1
+        'GroupBox1
         '
-        Me.ListView1.Location = New System.Drawing.Point(186, 113)
-        Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(121, 97)
-        Me.ListView1.TabIndex = 10
-        Me.ListView1.UseCompatibleStateImageBehavior = False
+        Me.GroupBox1.Location = New System.Drawing.Point(153, 73)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(200, 186)
+        Me.GroupBox1.TabIndex = 10
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "GroupBox1"
+        '
+        'LblIdPedido
+        '
+        Me.LblIdPedido.AutoSize = True
+        Me.LblIdPedido.Location = New System.Drawing.Point(351, 327)
+        Me.LblIdPedido.Name = "LblIdPedido"
+        Me.LblIdPedido.Size = New System.Drawing.Size(39, 13)
+        Me.LblIdPedido.TabIndex = 11
+        Me.LblIdPedido.Text = "Label5"
         '
         'pedidos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(611, 382)
-        Me.Controls.Add(Me.ListView1)
+        Me.Controls.Add(Me.LblIdPedido)
+        Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
@@ -250,5 +262,6 @@ Partial Class pedidos
     Friend WithEvents id_pedido As DataGridViewTextBoxColumn
     Friend WithEvents nombreP As DataGridViewTextBoxColumn
     Friend WithEvents precio As DataGridViewTextBoxColumn
-    Friend WithEvents ListView1 As ListView
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents LblIdPedido As Label
 End Class
