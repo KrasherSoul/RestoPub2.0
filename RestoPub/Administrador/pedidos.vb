@@ -4,6 +4,7 @@
     Dim nCuenta As Integer = 0
 
     Private Sub pedidos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         Dim btn As Button
         Dim sql As String
         Dim lft As Integer
@@ -31,6 +32,7 @@
 
             End While
         End If
+
         sql = "select * from variables"
         SQLQuery(sql, True)
         If lector.HasRows Then
@@ -40,9 +42,7 @@
             End While
         End If
     End Sub
-    Public Sub cargar_productos()
 
-    End Sub
     Private Sub Click_botonFamilia(sender As Object, e As MouseEventArgs)
         DataGridView1.Rows.Clear()
         SQLQuery("SELECT categoria.id_categoria,categoria.nombre FROM categoria where id_familia=" & sender.name, True)
@@ -59,7 +59,7 @@
             Dim sql As String
             Dim lft As Integer = 10
             Dim tp As Integer = 10
-            sql = "select * from producto where id_categoria=" & Me.DataGridView1.Rows(e.RowIndex).Cells(0).Value
+            sql = "select codigo_barra, concat(nombre,' / ',cantidad) as nombre from producto where id_categoria=" & Me.DataGridView1.Rows(e.RowIndex).Cells(0).Value
             SQLQuery(sql, True)
             Me.GroupBox1.Controls.Clear()
 
@@ -70,14 +70,14 @@
                         tp = tp + 75
                     End If
                     btn = New System.Windows.Forms.Button
-                    btn.Width = 150
+                    btn.Width = 140
                     btn.Height = 75
                     btn.Left = lft
                     lft = lft + 150
 
 
                     btn.Top = tp
-                    btn.Name = lector.Item("id_producto")
+                    btn.Name = lector.Item("codigo_barra")
                     btn.Font = New Font(btn.Name, 15, btn.Font.Style, btn.Font.Unit)
                     btn.Text = lector.Item("nombre")
                     btn.BackColor = Control.DefaultBackColor
@@ -102,23 +102,24 @@
             SQLQuery(query, False)
 
 
-            query = ("INSERT INTO detalle_pedido(id_producto,id_pedido,descripcion,fecha_hora) VALUES ('" & sender.name & "', '" & nPedido.ToString & "', '','" & Now.ToShortDateString.ToString & "' )")
+            query = ("INSERT INTO detalle_pedido(codigo_barra,id_pedido,descripcion,fecha_hora) VALUES ('" & sender.name & "', '" & nPedido.ToString & "', '','" & Now.ToShortDateString.ToString & "' )")
             SQLQuery(query, False)
             llenarDetallePedidos()
         Else
-            query = ("INSERT INTO detalle_pedido(id_producto,id_pedido,descripcion,fecha_hora) VALUES ('" & sender.name & "', '" & nPedido.ToString & "', '','" & Now.ToShortDateString.ToString & "' )")
+            query = ("INSERT INTO detalle_pedido(codigo_barra,id_pedido,descripcion,fecha_hora) VALUES ('" & sender.name & "', '" & nPedido.ToString & "', '','" & Now.ToShortDateString.ToString & "' )")
             SQLQuery(query, False)
             llenarDetallePedidos()
 
         End If
+
     End Sub
 
     Private Sub llenarDetallePedidos()
         DataGridView3.Rows.Clear()
-        SQLQuery("SELECT dbo.detalle_pedido.id_detalle_pedido,dbo.detalle_pedido.id_producto, dbo.producto.nombre as nombreP, dbo.producto.precio FROM dbo.detalle_pedido INNER JOIN dbo.producto ON dbo.detalle_pedido.id_producto = dbo.producto.id_producto where id_pedido='" & nPedido.ToString & "'", True)
+        SQLQuery("SELECT dbo.detalle_pedido.id_detalle_pedido,dbo.detalle_pedido.codigo_barra, dbo.producto.nombre as nombreP, dbo.producto.precio_neto FROM dbo.detalle_pedido INNER JOIN dbo.producto ON dbo.detalle_pedido.codigo_barra = dbo.producto.codigo_barra where id_pedido='" & nPedido.ToString & "'", True)
         If lector.HasRows Then
             While lector.Read
-                DataGridView3.Rows.Add(lector.Item("id_detalle_pedido"), lector.Item("id_producto"), lector.Item("nombreP"), lector.Item("precio"), "")
+                DataGridView3.Rows.Add(lector.Item("id_detalle_pedido"), lector.Item("codigo_barra"), lector.Item("nombreP"), lector.Item("precio_neto"), "")
             End While
         End If
     End Sub
@@ -177,7 +178,7 @@
         Dim margenizq As Integer
         Dim margensup As Integer
         e.Graphics.DrawString("Pedido n° " & nPedido.ToString, titulo, Brushes.Black, margenizq, margensup)
-        SQLQuery("SELECT dbo.detalle_pedido.id_detalle_pedido,dbo.detalle_pedido.id_producto, dbo.producto.nombre as nombreP, dbo.producto.precio FROM dbo.detalle_pedido INNER JOIN dbo.producto ON dbo.detalle_pedido.id_producto = dbo.producto.id_producto where id_pedido='" & nPedido.ToString & "'", True)
+        SQLQuery("SELECT dbo.detalle_pedido.id_detalle_pedido,dbo.detalle_pedido.codigo_barra, dbo.producto.nombre as nombreP, dbo.producto.precio_neto FROM dbo.detalle_pedido INNER JOIN dbo.producto ON dbo.detalle_pedido.codigo_barra = dbo.producto.codigo_barra where id_pedido='" & nPedido.ToString & "'", True)
         If lector.HasRows Then
             margensup = margensup + 25
             e.Graphics.DrawString("Producto", texto, Brushes.Black, margenizq, (margensup))
@@ -185,7 +186,7 @@
             While lector.Read
                 margensup = margensup + 25
                 e.Graphics.DrawString(lector.Item("nombreP").ToString, texto, Brushes.Black, (margenizq), margensup)
-                e.Graphics.DrawString(lector.Item("precio").ToString, texto, Brushes.Black, (margenizq + 100), margensup)
+                e.Graphics.DrawString(lector.Item("precio_neto").ToString, texto, Brushes.Black, (margenizq + 100), margensup)
             End While
         End If
 

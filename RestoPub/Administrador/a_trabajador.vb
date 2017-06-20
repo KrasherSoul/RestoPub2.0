@@ -96,7 +96,7 @@ Public Class a_trabajador
             Label12.Text = lector("sueldo").ToString()
         End If
     End Sub
-
+    'UPDATE producto set cantidad = '" & Label6.Text & "' where codigo_barra = '" & TextBox4.Text & "'", False
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         SQLQuery("UPDATE trabajador SET rut = '" & TxtRut.Text & "', id_cargo = '" & Label11.Text & "', nombre = '" & TxtNombre.Text & "', apellido = '" & TxtApellido.Text & "', verificador = '" & TxtVerificador.Text & "', fecha_nacimiento = '" & DtFechaNac.Value & "', ciudad = '" & TxtCiudad.Text & "', direccion = '" & TxtDireccion.Text & "', correo = '" & TxtCorreo.Text & "', telefono1 = '" & TxtTelefono1.Text & "', telefono2 = '" & TxtTelefono2.Text & "' WHERE rut = '" & Label15.Text & "'", False)
         If CheckBox1.Checked = True Then

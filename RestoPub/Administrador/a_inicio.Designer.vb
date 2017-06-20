@@ -33,16 +33,19 @@ Partial Class a_inicio
         Me.EditarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FamiliaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CerrarMesaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ComprasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BtnAgregar = New System.Windows.Forms.Button()
         Me.BtnEliminar = New System.Windows.Forms.Button()
         Me.BtnGuardar = New System.Windows.Forms.Button()
-        Me.CerrarMesaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PruebaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AsistenciaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TrabajadorToolStripMenuItem, Me.CargosToolStripMenuItem, Me.ProveedorToolStripMenuItem, Me.ProductosToolStripMenuItem, Me.EditarMesasToolStripMenuItem, Me.FamiliaToolStripMenuItem, Me.CerrarMesaToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TrabajadorToolStripMenuItem, Me.CargosToolStripMenuItem, Me.ProveedorToolStripMenuItem, Me.ProductosToolStripMenuItem, Me.EditarMesasToolStripMenuItem, Me.FamiliaToolStripMenuItem, Me.CerrarMesaToolStripMenuItem, Me.ComprasToolStripMenuItem, Me.PruebaToolStripMenuItem, Me.AsistenciaToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(869, 24)
@@ -111,6 +114,18 @@ Partial Class a_inicio
         Me.FamiliaToolStripMenuItem.Size = New System.Drawing.Size(57, 20)
         Me.FamiliaToolStripMenuItem.Text = "Familia"
         '
+        'CerrarMesaToolStripMenuItem
+        '
+        Me.CerrarMesaToolStripMenuItem.Name = "CerrarMesaToolStripMenuItem"
+        Me.CerrarMesaToolStripMenuItem.Size = New System.Drawing.Size(82, 20)
+        Me.CerrarMesaToolStripMenuItem.Text = "Cerrar Mesa"
+        '
+        'ComprasToolStripMenuItem
+        '
+        Me.ComprasToolStripMenuItem.Name = "ComprasToolStripMenuItem"
+        Me.ComprasToolStripMenuItem.Size = New System.Drawing.Size(65, 20)
+        Me.ComprasToolStripMenuItem.Text = "compras"
+        '
         'BtnAgregar
         '
         Me.BtnAgregar.Location = New System.Drawing.Point(500, 141)
@@ -138,11 +153,17 @@ Partial Class a_inicio
         Me.BtnGuardar.Text = "Guardar Mesas"
         Me.BtnGuardar.UseVisualStyleBackColor = True
         '
-        'CerrarMesaToolStripMenuItem
+        'PruebaToolStripMenuItem
         '
-        Me.CerrarMesaToolStripMenuItem.Name = "CerrarMesaToolStripMenuItem"
-        Me.CerrarMesaToolStripMenuItem.Size = New System.Drawing.Size(82, 20)
-        Me.CerrarMesaToolStripMenuItem.Text = "Cerrar Mesa"
+        Me.PruebaToolStripMenuItem.Name = "PruebaToolStripMenuItem"
+        Me.PruebaToolStripMenuItem.Size = New System.Drawing.Size(56, 20)
+        Me.PruebaToolStripMenuItem.Text = "prueba"
+        '
+        'AsistenciaToolStripMenuItem
+        '
+        Me.AsistenciaToolStripMenuItem.Name = "AsistenciaToolStripMenuItem"
+        Me.AsistenciaToolStripMenuItem.Size = New System.Drawing.Size(70, 20)
+        Me.AsistenciaToolStripMenuItem.Text = "asistencia"
         '
         'a_inicio
         '
@@ -177,4 +198,7 @@ Partial Class a_inicio
     Friend WithEvents BtnGuardar As Button
     Friend WithEvents FamiliaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CerrarMesaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ComprasToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents PruebaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AsistenciaToolStripMenuItem As ToolStripMenuItem
 End Class

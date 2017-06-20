@@ -24,13 +24,11 @@ Partial Class pedidos
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.id_categoria = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nombre = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.TabControl2 = New System.Windows.Forms.TabControl()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.DataGridView3 = New System.Windows.Forms.DataGridView()
-        Me.id_detalle_pedido = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.id_pedido = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nombreP = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.precio = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.Button1 = New System.Windows.Forms.Button()
@@ -45,9 +43,11 @@ Partial Class pedidos
         Me.LblIdPedido = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Button4 = New System.Windows.Forms.Button()
-        Me.id_categoria = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nombre = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
+        Me.id_detalle_pedido = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.id_pedido = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nombreP = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.precio_neto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl2.SuspendLayout()
         Me.TabPage3.SuspendLayout()
@@ -56,7 +56,6 @@ Partial Class pedidos
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RestobarDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RestobarDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'DataGridView1
@@ -66,11 +65,27 @@ Partial Class pedidos
         Me.DataGridView1.BackgroundColor = System.Drawing.Color.White
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id_categoria, Me.nombre})
-        Me.DataGridView1.Location = New System.Drawing.Point(-45, 59)
+        Me.DataGridView1.Location = New System.Drawing.Point(12, 59)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.Size = New System.Drawing.Size(144, 476)
+        Me.DataGridView1.RowHeadersVisible = False
+        Me.DataGridView1.Size = New System.Drawing.Size(104, 591)
         Me.DataGridView1.TabIndex = 1
+        '
+        'id_categoria
+        '
+        Me.id_categoria.HeaderText = ""
+        Me.id_categoria.Name = "id_categoria"
+        Me.id_categoria.ReadOnly = True
+        Me.id_categoria.Visible = False
+        '
+        'nombre
+        '
+        Me.nombre.HeaderText = "Categoria"
+        Me.nombre.Name = "nombre"
+        Me.nombre.ReadOnly = True
+        Me.nombre.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.nombre.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         '
         'TabControl2
         '
@@ -79,7 +94,7 @@ Partial Class pedidos
         Me.TabControl2.Location = New System.Drawing.Point(759, 59)
         Me.TabControl2.Name = "TabControl2"
         Me.TabControl2.SelectedIndex = 0
-        Me.TabControl2.Size = New System.Drawing.Size(213, 311)
+        Me.TabControl2.Size = New System.Drawing.Size(196, 562)
         Me.TabControl2.TabIndex = 2
         '
         'TabPage3
@@ -88,7 +103,7 @@ Partial Class pedidos
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(205, 285)
+        Me.TabPage3.Size = New System.Drawing.Size(188, 536)
         Me.TabPage3.TabIndex = 0
         Me.TabPage3.Text = "Pedido"
         Me.TabPage3.UseVisualStyleBackColor = True
@@ -99,37 +114,14 @@ Partial Class pedidos
         Me.DataGridView3.AllowUserToDeleteRows = False
         Me.DataGridView3.BackgroundColor = System.Drawing.Color.White
         Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView3.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id_detalle_pedido, Me.id_pedido, Me.nombreP, Me.precio})
-        Me.DataGridView3.Location = New System.Drawing.Point(-242, -1)
+        Me.DataGridView3.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id_detalle_pedido, Me.id_pedido, Me.nombreP, Me.precio_neto})
+        Me.DataGridView3.Location = New System.Drawing.Point(-4, -1)
         Me.DataGridView3.Name = "DataGridView3"
         Me.DataGridView3.ReadOnly = True
+        Me.DataGridView3.RowHeadersVisible = False
         Me.DataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView3.Size = New System.Drawing.Size(445, 290)
+        Me.DataGridView3.Size = New System.Drawing.Size(196, 590)
         Me.DataGridView3.TabIndex = 0
-        '
-        'id_detalle_pedido
-        '
-        Me.id_detalle_pedido.HeaderText = "detalle pedido"
-        Me.id_detalle_pedido.Name = "id_detalle_pedido"
-        Me.id_detalle_pedido.ReadOnly = True
-        '
-        'id_pedido
-        '
-        Me.id_pedido.HeaderText = "id_pedido"
-        Me.id_pedido.Name = "id_pedido"
-        Me.id_pedido.ReadOnly = True
-        '
-        'nombreP
-        '
-        Me.nombreP.HeaderText = "Producto"
-        Me.nombreP.Name = "nombreP"
-        Me.nombreP.ReadOnly = True
-        '
-        'precio
-        '
-        Me.precio.HeaderText = "precio"
-        Me.precio.Name = "precio"
-        Me.precio.ReadOnly = True
         '
         'TabPage4
         '
@@ -137,7 +129,7 @@ Partial Class pedidos
         Me.TabPage4.Location = New System.Drawing.Point(4, 22)
         Me.TabPage4.Name = "TabPage4"
         Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage4.Size = New System.Drawing.Size(205, 285)
+        Me.TabPage4.Size = New System.Drawing.Size(188, 536)
         Me.TabPage4.TabIndex = 1
         Me.TabPage4.Text = "Ya Ingresado"
         Me.TabPage4.UseVisualStyleBackColor = True
@@ -152,7 +144,7 @@ Partial Class pedidos
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(893, 394)
+        Me.Button1.Location = New System.Drawing.Point(880, 627)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 0
@@ -161,7 +153,7 @@ Partial Class pedidos
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(759, 394)
+        Me.Button2.Location = New System.Drawing.Point(763, 627)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 23)
         Me.Button2.TabIndex = 3
@@ -234,54 +226,65 @@ Partial Class pedidos
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.Button4)
-        Me.GroupBox1.Location = New System.Drawing.Point(105, 59)
+        Me.GroupBox1.Location = New System.Drawing.Point(138, 59)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(638, 591)
+        Me.GroupBox1.Size = New System.Drawing.Size(605, 591)
         Me.GroupBox1.TabIndex = 11
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = " "
         '
         'Button4
         '
-        Me.Button4.Location = New System.Drawing.Point(536, 334)
+        Me.Button4.Location = New System.Drawing.Point(819, 647)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(75, 23)
         Me.Button4.TabIndex = 0
         Me.Button4.Text = "Button4"
         Me.Button4.UseVisualStyleBackColor = True
         '
-        'id_categoria
-        '
-        Me.id_categoria.HeaderText = ""
-        Me.id_categoria.Name = "id_categoria"
-        Me.id_categoria.ReadOnly = True
-        Me.id_categoria.Visible = False
-        '
-        'nombre
-        '
-        Me.nombre.HeaderText = "Categoria"
-        Me.nombre.Name = "nombre"
-        Me.nombre.ReadOnly = True
-        Me.nombre.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.nombre.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        '
         'PrintDocument1
         '
+        '
+        'id_detalle_pedido
+        '
+        Me.id_detalle_pedido.HeaderText = "detalle pedido"
+        Me.id_detalle_pedido.Name = "id_detalle_pedido"
+        Me.id_detalle_pedido.ReadOnly = True
+        Me.id_detalle_pedido.Visible = False
+        '
+        'id_pedido
+        '
+        Me.id_pedido.HeaderText = "id_pedido"
+        Me.id_pedido.Name = "id_pedido"
+        Me.id_pedido.ReadOnly = True
+        Me.id_pedido.Visible = False
+        '
+        'nombreP
+        '
+        Me.nombreP.HeaderText = "Producto"
+        Me.nombreP.Name = "nombreP"
+        Me.nombreP.ReadOnly = True
+        '
+        'precio_neto
+        '
+        Me.precio_neto.HeaderText = "precio"
+        Me.precio_neto.Name = "precio_neto"
+        Me.precio_neto.ReadOnly = True
         '
         'pedidos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(984, 662)
+        Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.LblIdPedido)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.TabControl2)
@@ -295,7 +298,6 @@ Partial Class pedidos
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RestobarDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RestobarDataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -316,13 +318,13 @@ Partial Class pedidos
     Friend WithEvents RestobarDataSet As restobarDataSet
     Friend WithEvents RestobarDataSetBindingSource As BindingSource
     Friend WithEvents LblIdPedido As Label
-    Friend WithEvents id_detalle_pedido As DataGridViewTextBoxColumn
-    Friend WithEvents id_pedido As DataGridViewTextBoxColumn
-    Friend WithEvents nombreP As DataGridViewTextBoxColumn
-    Friend WithEvents precio As DataGridViewTextBoxColumn
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents Button4 As Button
     Friend WithEvents id_categoria As DataGridViewTextBoxColumn
     Friend WithEvents nombre As DataGridViewButtonColumn
     Friend WithEvents PrintDocument1 As Printing.PrintDocument
+    Friend WithEvents id_detalle_pedido As DataGridViewTextBoxColumn
+    Friend WithEvents id_pedido As DataGridViewTextBoxColumn
+    Friend WithEvents nombreP As DataGridViewTextBoxColumn
+    Friend WithEvents precio_neto As DataGridViewTextBoxColumn
 End Class

@@ -68,4 +68,8 @@ Public Class a_producto
         SQLQuery("UPDATE producto SET nombre = '" & TxtNombre.Text & "', id_categoria = '" & Label6.Text & "', precio = '" & TxtPrecio.Text & "', cantidad = '" & TxtCantidad.Text & "', descripcion = '" & RTxtDescripcion.Text & "' WHERE id_producto = '" & Label3.Text & "'", False)
         cargar_producto()
     End Sub
+
+    Private Sub CmbCategoria_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbCategoria.SelectedIndexChanged
+
+    End Sub
 End Class

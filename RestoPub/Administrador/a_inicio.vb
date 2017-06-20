@@ -213,4 +213,24 @@
     Private Sub CerrarMesaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CerrarMesaToolStripMenuItem.Click
         cierre = True
     End Sub
+
+    Private Sub ComprasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ComprasToolStripMenuItem.Click
+        Me.Hide()
+        a_compra.Show()
+    End Sub
+
+    Private Sub MenuStrip1_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles MenuStrip1.ItemClicked
+
+    End Sub
+
+    Private Sub PruebaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PruebaToolStripMenuItem.Click
+        prueba.Show()
+    End Sub
+
+    Private Sub AsistenciaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AsistenciaToolStripMenuItem.Click
+        a_asistencia.Show()
+
+        Me.Hide()
+
+    End Sub
 End Class
