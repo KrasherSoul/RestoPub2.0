@@ -99,6 +99,18 @@ Public Class a_trabajador
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         SQLQuery("UPDATE trabajador SET rut = '" & TxtRut.Text & "', id_cargo = '" & Label11.Text & "', nombre = '" & TxtNombre.Text & "', apellido = '" & TxtApellido.Text & "', verificador = '" & TxtVerificador.Text & "', fecha_nacimiento = '" & DtFechaNac.Value & "', ciudad = '" & TxtCiudad.Text & "', direccion = '" & TxtDireccion.Text & "', correo = '" & TxtCorreo.Text & "', telefono1 = '" & TxtTelefono1.Text & "', telefono2 = '" & TxtTelefono2.Text & "' WHERE rut = '" & Label15.Text & "'", False)
+        If CheckBox1.Checked = True Then
+            Dim query As String
+
+            SQLQuery("select usuario from usuario where rut='" & TxtRut.Text & "' ", True)
+            If lector.Read Then
+                SQLQuery("update usuario SET usuario='" & TxtUsuario.Text & "',pass= '" & TxtPass.Text & "' where rut='" & TxtRut.Text & "'", False)
+            Else
+                query = ("INSERT INTO usuario (rut,usuario,pass,estado) VALUES ('" & TxtRut.Text & "', '" & TxtUsuario.Text & "', '" & TxtPass.Text & "', '1' )")
+                SQLQuery(query, False)
+            End If
+        End If
+
         cargar_trabajador()
 
     End Sub

@@ -9,7 +9,7 @@
     Dim eliminar As Boolean
     Dim id_mesa As Integer = 0
     Dim num_mesas As Integer = 1
-
+    Dim cierre As Boolean = False
     Private Sub CrearBoton()
         Dim sql As String
 
@@ -42,7 +42,11 @@
 
     Private Sub Click_boton(sender As Object, e As EventArgs)
         Dim sql As String
+        If cierre Then
+            Venta.Show()
+            Venta.Label1.Text = sender.text
 
+        End If
         If edicion Then
             If eliminar Then
                 Me.Controls.Remove(sender)
@@ -171,6 +175,7 @@
             MsgBox("Edicion deshabilitada", MsgBoxStyle.Exclamation, "Edicion deshabilitada")
         End If
 
+
     End Sub
 
 
@@ -198,5 +203,14 @@
     Private Sub BtnGuardar_Click(sender As Object, e As EventArgs) Handles BtnGuardar.Click
         edicion = False
         eliminar = False
+    End Sub
+
+    Private Sub FamiliaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FamiliaToolStripMenuItem.Click
+        Me.Hide()
+        a_familia.Show()
+    End Sub
+
+    Private Sub CerrarMesaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CerrarMesaToolStripMenuItem.Click
+        cierre = True
     End Sub
 End Class

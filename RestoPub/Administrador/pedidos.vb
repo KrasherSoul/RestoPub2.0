@@ -9,10 +9,9 @@
         Dim lft As Integer
         Button2.Enabled = False
 
-
-
         LblIdPedido.Text = nPedido
         cPedidos = 0
+
         SQLQuery("select * from familia", True)
         If lector.HasRows Then
             While lector.Read
@@ -32,8 +31,6 @@
 
             End While
         End If
-
-
         sql = "select * from variables"
         SQLQuery(sql, True)
         If lector.HasRows Then
@@ -42,8 +39,6 @@
                 nCuenta = lector.Item("num_cuenta")
             End While
         End If
-
-
     End Sub
     Public Sub cargar_productos()
 
@@ -107,13 +102,12 @@
             SQLQuery(query, False)
 
 
-            query = ("INSERT INTO detalle_pedido(id_producto,id_pedido,descripcion) VALUES ('" & sender.name & "', '" & nPedido.ToString & "', '' )")
+            query = ("INSERT INTO detalle_pedido(id_producto,id_pedido,descripcion,fecha_hora) VALUES ('" & sender.name & "', '" & nPedido.ToString & "', '','" & Now.ToShortDateString.ToString & "' )")
             SQLQuery(query, False)
             llenarDetallePedidos()
         Else
-            query = ("INSERT INTO detalle_pedido(id_producto,id_pedido,descripcion) VALUES ('" & sender.name & "', '" & nPedido.ToString & "', '' )")
+            query = ("INSERT INTO detalle_pedido(id_producto,id_pedido,descripcion,fecha_hora) VALUES ('" & sender.name & "', '" & nPedido.ToString & "', '','" & Now.ToShortDateString.ToString & "' )")
             SQLQuery(query, False)
-            MsgBox(query)
             llenarDetallePedidos()
 
         End If
@@ -170,32 +164,30 @@
         End If
     End Sub
 
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
+        PrintDocument1.Print()
 
-    '  Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-    ' Dim sql As String
-    '    sql = "SELECT mesa.num_mesa FROM cuenta INNER JOIN mesa ON dbo.cuenta.id_mesa = dbo.mesa.id_mesa where mesa.num_mesa='" & Label2.Text & "' and cuenta.estado = 'pendiente'"
-    '   SQLQuery(sql, True)
-    'If lector.HasRows Then
-    '       sql = "Select * from detalle_pedido where id_pedido = '" & LblIdPedido.Text & "'"
-    '      SQLQuery(sql, True)
-    'If lector.HasRows Then
-    'While lector.Read
-    '               sql = "insert into detalle_cuenta (precio_neto, nombre_producto, fecha_hora) values  "
-    'End While
-    'End If
-    'Else
-    '       sql = "SELECT producto.nombre as pnombre, dbo.producto.precio as pprecio, dbo.pedido.fecha_hora as pefecha FROM dbo.detalle_pedido INNER JOIN pedido ON dbo.detalle_pedido.id_pedido = dbo.pedido.id_pedido INNER JOIN producto ON dbo.detalle_pedido.id_producto = dbo.producto.id_producto where pedido.id_pedido = '" & LblIdPedido.Text & "'"
-    '      SQLQuery(sql, True)
-    'If lector.HasRows Then
-    '           nCuenta = nCuenta + 1
-    '          sql = "Insert into cuenta (id_cuenta, num_cuenta, fecha_hora,id_mesa,estado) values ('" & nCuenta.ToString & "','1', '" & Now.ToLongDateString.ToString & "', '" & Label2.Text & "', 'pendiente') "
-    '         SQLQuery(sql, False)
-    'While lector.Read
-    '               sql = "insert into detalle_cuenta (id_cuenta, precio_neto, nombre_producto, fecha_hora) values ('" & nCuenta.ToString & "', '" & lector.Item("pprecio") & "', '" & lector.Item("pnombre") & "', '" & lector.Item("pefecha") & "')"
-    '              SQLQuery(sql, False)
-    'End While
-    'End If
-    'End If
-    'End Sub
+    End Sub
+
+    Private Sub PrintDocument1_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PrintDocument1.PrintPage
+        Dim titulo As Font = New Drawing.Font("Arial", 14)
+        Dim sector As Font = New Drawing.Font("Arial", 16)
+        Dim texto As Font = New Drawing.Font("Arial", 11)
+        Dim margenizq As Integer
+        Dim margensup As Integer
+        e.Graphics.DrawString("Pedido n° " & nPedido.ToString, titulo, Brushes.Black, margenizq, margensup)
+        SQLQuery("SELECT dbo.detalle_pedido.id_detalle_pedido,dbo.detalle_pedido.id_producto, dbo.producto.nombre as nombreP, dbo.producto.precio FROM dbo.detalle_pedido INNER JOIN dbo.producto ON dbo.detalle_pedido.id_producto = dbo.producto.id_producto where id_pedido='" & nPedido.ToString & "'", True)
+        If lector.HasRows Then
+            margensup = margensup + 25
+            e.Graphics.DrawString("Producto", texto, Brushes.Black, margenizq, (margensup))
+            e.Graphics.DrawString("Precio", texto, Brushes.Black, (margenizq + 100), (margensup))
+            While lector.Read
+                margensup = margensup + 25
+                e.Graphics.DrawString(lector.Item("nombreP").ToString, texto, Brushes.Black, (margenizq), margensup)
+                e.Graphics.DrawString(lector.Item("precio").ToString, texto, Brushes.Black, (margenizq + 100), margensup)
+            End While
+        End If
+
+    End Sub
 End Class

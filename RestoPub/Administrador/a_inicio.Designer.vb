@@ -30,17 +30,19 @@ Partial Class a_inicio
         Me.CategoriasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AgregarProductoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EditarMesasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EditarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.FamiliaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BtnAgregar = New System.Windows.Forms.Button()
         Me.BtnEliminar = New System.Windows.Forms.Button()
         Me.BtnGuardar = New System.Windows.Forms.Button()
+        Me.CerrarMesaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TrabajadorToolStripMenuItem, Me.CargosToolStripMenuItem, Me.ProveedorToolStripMenuItem, Me.ProductosToolStripMenuItem, Me.EditarMesasToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TrabajadorToolStripMenuItem, Me.CargosToolStripMenuItem, Me.ProveedorToolStripMenuItem, Me.ProductosToolStripMenuItem, Me.EditarMesasToolStripMenuItem, Me.FamiliaToolStripMenuItem, Me.CerrarMesaToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(869, 24)
@@ -91,17 +93,23 @@ Partial Class a_inicio
         Me.EditarMesasToolStripMenuItem.Size = New System.Drawing.Size(52, 20)
         Me.EditarMesasToolStripMenuItem.Text = "Mesas"
         '
-        'GuardarToolStripMenuItem
-        '
-        Me.GuardarToolStripMenuItem.Name = "GuardarToolStripMenuItem"
-        Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.GuardarToolStripMenuItem.Text = "Terminar"
-        '
         'EditarToolStripMenuItem
         '
         Me.EditarToolStripMenuItem.Name = "EditarToolStripMenuItem"
-        Me.EditarToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.EditarToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
         Me.EditarToolStripMenuItem.Text = "Editar"
+        '
+        'GuardarToolStripMenuItem
+        '
+        Me.GuardarToolStripMenuItem.Name = "GuardarToolStripMenuItem"
+        Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
+        Me.GuardarToolStripMenuItem.Text = "Terminar"
+        '
+        'FamiliaToolStripMenuItem
+        '
+        Me.FamiliaToolStripMenuItem.Name = "FamiliaToolStripMenuItem"
+        Me.FamiliaToolStripMenuItem.Size = New System.Drawing.Size(57, 20)
+        Me.FamiliaToolStripMenuItem.Text = "Familia"
         '
         'BtnAgregar
         '
@@ -129,6 +137,12 @@ Partial Class a_inicio
         Me.BtnGuardar.TabIndex = 5
         Me.BtnGuardar.Text = "Guardar Mesas"
         Me.BtnGuardar.UseVisualStyleBackColor = True
+        '
+        'CerrarMesaToolStripMenuItem
+        '
+        Me.CerrarMesaToolStripMenuItem.Name = "CerrarMesaToolStripMenuItem"
+        Me.CerrarMesaToolStripMenuItem.Size = New System.Drawing.Size(82, 20)
+        Me.CerrarMesaToolStripMenuItem.Text = "Cerrar Mesa"
         '
         'a_inicio
         '
@@ -161,4 +175,6 @@ Partial Class a_inicio
     Friend WithEvents GuardarToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents EditarToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BtnGuardar As Button
+    Friend WithEvents FamiliaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents CerrarMesaToolStripMenuItem As ToolStripMenuItem
 End Class
